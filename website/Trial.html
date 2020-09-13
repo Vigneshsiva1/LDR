@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trial Firebase</title>
+</head>
+<body>
+<h1 id = "bigOne"></h1>
+
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBB9EcXYuQRk2lnqgQol1GGSGf9S46t1rU",
+    authDomain: "ldr-cube.firebaseapp.com",
+    databaseURL: "https://ldr-cube.firebaseio.com",
+    projectId: "ldr-cube",
+    storageBucket: "ldr-cube.appspot.com",
+    messagingSenderId: "956968125944",
+    appId: "1:956968125944:web:1a34ad46cbc2a9ac87020d",
+    measurementId: "G-0BS8965SQ8"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  var bigOne = document.getElementById('bigOne');
+  var dbRef = firebase.databas().ref().child('text');
+  dbRef.on('value', snap => bigOne.innerText = snap.val());
+</script>
+
+</body>
+</html>
